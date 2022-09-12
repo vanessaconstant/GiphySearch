@@ -3,6 +3,9 @@ const btnContainer = document.querySelector(".btn-container");
 const giphyContainer = document.getElementById("giphyContainer");
 const form = document.getElementById("searchBar");
 
+//This function call is to make sure that images are already loaded by the time the page loads
+getGiphys("loading");
+
 // The click even is put on the container to avoid repeating the code
 btnContainer.addEventListener("click", (event) => {
   clearResult();
@@ -41,8 +44,10 @@ function getGiphys(searchedWord) {
 
       for (let i = 0; i < 10; i++) {
         const img = document.createElement("img");
-        img.setAttribute("src", `${result[i].images.original.url}`);
-        img.classList.add("image");
+        img.setAttribute(
+          "src",
+          `${result[i].images.fixed_height_downsampled.url}`
+        );
         giphyContainer.appendChild(img);
       }
     });
