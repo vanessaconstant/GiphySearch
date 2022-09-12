@@ -24,6 +24,7 @@ form.addEventListener("submit", (event) => {
   clearResult();
   const keyword = userInput.value;
   getGiphys(keyword);
+  userInput.value = "";
 });
 
 // function get giphys based on the keyword inputed
